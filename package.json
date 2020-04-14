@@ -1,0 +1,24 @@
+{
+  "name": "auto-author-assign",
+  "version": "0.0.1",
+  "description": "GitHub Actions: Assign pull request author automatically.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toshimaru/auto-author-assign.git"
+  },
+  "keywords": [],
+  "author": "toshimaru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/toshimaru/auto-author-assign/issues"
+  },
+  "homepage": "https://github.com/toshimaru/auto-author-assign#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.3",
+    "@actions/github": "^2.1.1"
+  }
+}
