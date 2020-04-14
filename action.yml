@@ -5,9 +5,13 @@ inputs:
   repo-token:
     description: 'A token for the repo'
     required: true
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
 runs:
   using: 'node12'
-  main: 'index.js'
+  main: 'dist/index.js'
 branding:
   icon: 'user-plus'
   color: 'pink'
