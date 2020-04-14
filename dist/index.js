@@ -507,12 +507,18 @@ const core = __webpack_require__(470);
 const github = __webpack_require__(469);
 
 try {
-  const nameToGreet = core.getInput('who-to-greet');
-  console.log(`Hello ${nameToGreet}!`);
-
   // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
+  const payload = JSON.stringify(github.context.payload, undefined, 2);
   console.log(`The event payload: ${payload}`);
+
+  const token = core.getInput("repo-token", { required: true });
+  const client = new github.GitHub(token);
+  const { user, number } = github.context.payload.pull_request;
+  const author = user.login;
+
+  const { owner, repo } = github.context.issue;
+  client.issues.addAssignees({ owner, repo, number, author });
+  core.info(`Added assignees to PR #${number}: ${author}`);
 } catch (error) {
   core.setFailed(error.message);
 }
