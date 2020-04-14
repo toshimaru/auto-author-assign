@@ -1,0 +1,13 @@
+name: 'Auto Author Assign'
+description: 'Assign author to pull requests when pull requests are opened.'
+author: 'toshimaru'
+inputs:
+  repo-token:
+    description: 'A token for the repo'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
+branding:
+  icon: 'user-plus'
+  color: 'pink'
