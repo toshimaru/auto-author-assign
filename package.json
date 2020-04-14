@@ -4,6 +4,7 @@
   "description": "GitHub Actions: Assign pull request author automatically.",
   "main": "index.js",
   "scripts": {
+    "build": "ncc build index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +21,8 @@
   "dependencies": {
     "@actions/core": "^1.2.3",
     "@actions/github": "^2.1.1"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.22.1"
   }
 }
