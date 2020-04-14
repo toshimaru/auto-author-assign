@@ -10,4 +10,4 @@ jobs:
       - name: Hello world action step
         uses: ./ # Uses an action in the root directory
         with:
-          who-to-greet: 'Mona the Octocat'
+          repo-token: 'Mona the Octocat'

@@ -513,10 +513,12 @@ try {
 
   const token = core.getInput("repo-token", { required: true });
   const client = new github.GitHub(token);
-  const { user, number } = github.context.payload.pull_request;
-  const author = user.login;
+  const number = github.context.payload.pull_request.number;
+  const author = github.context.payload.pull_request.user.login;
 
   const { owner, repo } = github.context.issue;
+  console.log(`The event owner: ${owner}`);
+  console.log(`The event repo: ${repo}`);
   client.issues.addAssignees({ owner, repo, number, author });
   core.info(`Added assignees to PR #${number}: ${author}`);
 } catch (error) {
