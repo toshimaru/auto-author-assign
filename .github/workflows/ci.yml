@@ -7,8 +7,6 @@ jobs:
       # To use this repository's private action, you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Hello world action step
-        uses: ./ # Uses an action in the root directory
-        id: hello
+      - uses: ./ # Uses an action in the root directory
         with:
           who-to-greet: 'Mona the Octocat'
