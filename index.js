@@ -2,6 +2,7 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 
 try {
+  const token = core.getInput("repo-token", { required: true });
   const { assignees, number, user: { login: author } } = github.context.payload.pull_request;
   const { owner: { login: owner }, name: repo, } = github.context.payload.repository;
 

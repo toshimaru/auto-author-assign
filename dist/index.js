@@ -507,6 +507,7 @@ const core = __webpack_require__(470);
 const github = __webpack_require__(469);
 
 try {
+  const token = core.getInput("repo-token", { required: true });
   const { assignees, number, user: { login: author } } = github.context.payload.pull_request;
   const { owner: { login: owner }, name: repo, } = github.context.payload.repository;
 
