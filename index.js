@@ -6,16 +6,17 @@ try {
   // const payload = JSON.stringify(github.context.payload, undefined, 2);
   // console.log(`The event payload: ${payload}`);
   const token = core.getInput("repo-token", { required: true });
-  const client = new github.GitHub(token);
 
-  const { number: issue_number, user } = github.context.payload.pull_request;
-  const author = user.login;
-  const { owner: { login: owner }, name: repo, } = github.context.payload.repository;
+  const { number: issue_number, user: { login: author } } = github.context.payload.pull_request;
+  const { owner: { login: owner }, name: repo, }          = github.context.payload.repository;
 
   (async () => {
-    const result = await client.issues.addAssignees({ owner, repo, issue_number, author });
-    core.info(JSON.stringify(result))
+    const client = new github.GitHub(token);
+    const assignees = [author];
+    const result = await client.issues.addAssignees({ owner, repo, issue_number, assignees });
+    core.debug(JSON.stringify(result))
   })();
+
   core.info(`Added assignees to PR ${owner}/${repo}#${issue_number}: ${author}`);
 } catch (error) {
   core.setFailed(error.message);
