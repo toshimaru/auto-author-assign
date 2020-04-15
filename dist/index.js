@@ -516,9 +516,11 @@ try {
   const { number: issue_number, user } = github.context.payload.pull_request;
   const author = user.login;
   const { owner: { login: owner }, name: repo, } = github.context.payload.repository;
-  // const owner = ownerinfo.login;
 
-  client.issues.addAssignees({ owner, repo, issue_number, author });
+  (async () => {
+    const result = await client.issues.addAssignees({ owner, repo, issue_number, author });
+    core.debug(JSON.stringify(result))
+  })();
   core.info(`Added assignees to PR ${owner}/${repo}#${issue_number}: ${author}`);
 } catch (error) {
   core.setFailed(error.message);
