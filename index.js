@@ -13,7 +13,7 @@ try {
   const { owner: ownerinfo, name: repo, } = github.context.payload.repository;
   const owner = ownerinfo.login;
 
-  client.issues.addAssignees(owner, repo, number, author);
+  client.issues.addAssignees({ owner, repo, number, author });
   core.info(`Added assignees to PR #${number}: ${author}`);
 } catch (error) {
   core.setFailed(error.message);
