@@ -14,7 +14,7 @@ try {
   // const owner = ownerinfo.login;
 
   client.issues.addAssignees({ owner, repo, issue_number, author });
-  core.info(`Added assignees to PR #${issue_number}: ${author}`);
+  core.info(`Added assignees to PR ${owner}/${repo}#${issue_number}: ${author}`);
 } catch (error) {
   core.setFailed(error.message);
 }
