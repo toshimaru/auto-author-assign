@@ -507,22 +507,21 @@ const core = __webpack_require__(470);
 const github = __webpack_require__(469);
 
 try {
-  // Get the JSON webhook payload for the event that triggered the workflow
-  // const payload = JSON.stringify(github.context.payload, undefined, 2);
-  // console.log(`The event payload: ${payload}`);
-  const token = core.getInput("repo-token", { required: true });
+  const { assignees, number, user: { login: author } } = github.context.payload.pull_request;
+  const { owner: { login: owner }, name: repo, } = github.context.payload.repository;
 
-  const { number: issue_number, user: { login: author } } = github.context.payload.pull_request;
-  const { owner: { login: owner }, name: repo, }          = github.context.payload.repository;
+  if (assignees.length > 0) {
+    core.info('Skips the process to add assignees since the pull request is already assigned to someone');
+    return;
+  }
 
   (async () => {
     const client = new github.GitHub(token);
-    const assignees = [author];
-    const result = await client.issues.addAssignees({ owner, repo, issue_number, assignees });
-    core.debug(JSON.stringify(result))
+    const result = await client.issues.addAssignees({ owner, repo, issue_number: number, assignees: [author] });
+    core.debug(JSON.stringify(result));
   })();
 
-  core.info(`Added assignees to PR ${owner}/${repo}#${issue_number}: ${author}`);
+  core.info(`Added assignees to PR ${owner}/${repo}#${number}: ${author}`);
 } catch (error) {
   core.setFailed(error.message);
 }
