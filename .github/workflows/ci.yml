@@ -1,10 +1,9 @@
+name: 'Auto Author Assign'
 on: [pull_request]
 jobs:
-  hello_world_job:
+  add-assignees:
     runs-on: ubuntu-latest
-    name: Assign author
     steps:
-      # To use this repository's private action, you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
       - name: Test toshimaru/auto-author-assign action
