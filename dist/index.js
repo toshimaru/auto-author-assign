@@ -515,7 +515,7 @@ try {
   const client = new github.GitHub(token);
   const { number, user } = github.context.payload.pull_request;
   const author = user.login;
-  const { ownerinfo, name: repo } = github.context.payload.repository.owner.login;
+  const { owner: ownerinfo, name: repo, } = github.context.payload.repository;
   const owner = ownerinfo.login;
 
   client.issues.addAssignees(owner, repo, number, author);
