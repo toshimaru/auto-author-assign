@@ -519,7 +519,7 @@ try {
 
   (async () => {
     const result = await client.issues.addAssignees({ owner, repo, issue_number, author });
-    core.debug(JSON.stringify(result))
+    core.info(JSON.stringify(result))
   })();
   core.info(`Added assignees to PR ${owner}/${repo}#${issue_number}: ${author}`);
 } catch (error) {
