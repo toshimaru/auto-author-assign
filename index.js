@@ -13,7 +13,7 @@ try {
 
   (async () => {
     const client = new github.GitHub(token);
-    const result = await client.issues.addAssignees({ owner: github.repository_owner, repo, issue_number: number, assignees: [author] });
+    const result = await client.issues.addAssignees({ owner: github.context.repository_owner, repo, issue_number: number, assignees: [author] });
     core.debug(JSON.stringify(result));
   })();
 
