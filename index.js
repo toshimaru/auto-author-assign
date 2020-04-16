@@ -17,7 +17,7 @@ try {
     core.debug(JSON.stringify(result));
   })();
 
-  core.info(`Added assignees to PR ${owner}/${repo}#${number}: ${author}`);
+  core.info(`Assigned @${author} to pull request #${number}`);
 } catch (error) {
   core.setFailed(error.message);
 }
