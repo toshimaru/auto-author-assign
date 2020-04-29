@@ -13,7 +13,7 @@ try {
     core.info(`Skips the process to add assignees since the pull request is already assigned to someone`);
     return;
   }
-  if (type === 'bot') {
+  if (type === 'Bot') {
     core.info("Skips the process to add assignees since the author is bot");
     return;
   }
