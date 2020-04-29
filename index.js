@@ -7,10 +7,15 @@ try {
   console.log(`The event payload: ${payload}`);
 
   const token = core.getInput("repo-token", { required: true });
+
+  if (github.context.payload.pull_request === undefined) {
+    core.setFailed("Can't get pull_request payload. Check you trigger pull_request event");
+    return;
+  }
   const { assignees, number, user: { login: author, type } } = github.context.payload.pull_request;
 
   if (assignees.length > 0) {
-    core.info('Skips the process to add assignees since the pull request is already assigned to someone');
+    core.info(`Skips the process to add assignees since the pull request is already assigned to someone`);
     return;
   }
 
