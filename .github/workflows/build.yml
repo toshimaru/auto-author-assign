@@ -1,5 +1,5 @@
-name: 'Auto Author Assign'
-on: [pull_request]
+name: 'Build'
+on: [push]
 jobs:
   add-assignees:
     runs-on: ubuntu-latest
@@ -10,3 +10,4 @@ jobs:
         with:
           node-version: '14.x'
       - run: npm install
+      - run: npm run build
