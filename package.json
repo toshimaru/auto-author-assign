@@ -2,9 +2,9 @@
   "name": "auto-author-assign",
   "version": "0.3.0",
   "description": "GitHub Actions: Assign pull request author automatically.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "build": "ncc build index.js",
+    "build": "ncc build src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
