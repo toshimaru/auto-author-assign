@@ -1,7 +1,6 @@
-name: 'Build'
 on: [push]
 jobs:
-  add-assignees:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
