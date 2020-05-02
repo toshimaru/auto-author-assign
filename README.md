@@ -1,3 +1,5 @@
+![Build](https://github.com/toshimaru/auto-author-assign/workflows/Build/badge.svg)
+
 # auto-author-assign
 
 GitHub Actions: Assign pull request author automatically.
