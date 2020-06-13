@@ -1,10 +1,16 @@
 ![Build](https://github.com/toshimaru/auto-author-assign/workflows/Build/badge.svg)
 
-![OG image](./img/auto-author-assign.jpg)
-
 # auto-author-assign
 
 GitHub Actions: Assign pull request author automatically.
+
+![OG image](./img/auto-author-assign.jpg)
+
+## Why this action?
+
+In most cases, pull request author should be an assignee of the pull request.
+
+This action automatically assigns PR author as an assignee.
 
 ## Usage
 
