@@ -6829,6 +6829,9 @@ async function run() {
     repo: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.repo,
     issue_number: number,
     assignees: [author]
+  }).catch ((err) => {
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(err)
+    console.log('caught it')
   });
   _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(JSON.stringify(result));
   _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`@${author} has been assigned to the pull request: #${number}`);
@@ -6837,7 +6840,6 @@ async function run() {
 try {
   run();
 } catch (error) {
-  _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('==================')
   _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.message);
 }
 
