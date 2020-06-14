@@ -27,9 +27,8 @@ try {
       assignees: [author] 
     });
     core.debug(JSON.stringify(result));
+    core.info(`@${author} has been assigned to the pull request: #${number}`);
   })();
-
-  core.info(`@${author} has been assigned to the pull request: #${number}`);
 } catch (error) {
   core.setFailed(error.message);
 }
