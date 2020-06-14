@@ -18,7 +18,7 @@ async function run() {
       return;
     }
 
-    const client = new github.GitHub(token);
+    const client = new github.getOctokit(token);
     const result = await client.issues.addAssignees({
       owner: github.context.repo.owner,
       repo: github.context.repo.repo,
