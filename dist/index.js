@@ -6809,6 +6809,9 @@ __webpack_require__.r(__webpack_exports__);
 async function run() {
   const token = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("repo-token", { required: true });
 
+  var a = {};
+  a.GitHub();
+
   if (_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request === undefined) {
     throw new Error("Can't get pull_request payload. Check you trigger pull_request event");
   }
@@ -6840,6 +6843,7 @@ async function run() {
 try {
   run();
 } catch (error) {
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('==================')
   _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.message);
 }
 
