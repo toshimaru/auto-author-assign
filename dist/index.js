@@ -42,6 +42,8 @@ module.exports =
 /******/ 		// Load entry module and return exports
 /******/ 		return __webpack_require__(676);
 /******/ 	};
+/******/ 	// initialize runtime
+/******/ 	runtime(__webpack_require__);
 /******/
 /******/ 	// run startup
 /******/ 	return startup();
@@ -6793,42 +6795,52 @@ module.exports = require("util");
 /***/ }),
 
 /***/ 676:
-/***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
+/***/ (function(__unusedmodule, __webpack_exports__, __webpack_require__) {
 
-const core = __webpack_require__(470);
-const github = __webpack_require__(469);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(470);
+/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_github__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(469);
+/* harmony import */ var _actions_github__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_actions_github__WEBPACK_IMPORTED_MODULE_1__);
+// const core = require("@actions/core");
 
-try {
-  const token = core.getInput("repo-token", { required: true });
 
-  if (github.context.payload.pull_request === undefined) {
+
+function run() {
+  const token = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("repo-token", { required: true });
+
+  if (_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request === undefined) {
     throw new Error("Can't get pull_request payload. Check you trigger pull_request event");
   }
-  const { assignees, number, user: { login: author, type } } = github.context.payload.pull_request;
+  const { assignees, number, user: { login: author, type } } = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request;
 
   if (assignees.length > 0) {
-    core.info(`Skips the process to add assignees since the pull request is already assigned to someone`);
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Skips the process to add assignees since the pull request is already assigned to someone`);
     return;
   }
   if (type === 'Bot') {
-    core.info("Skips the process to add assignees since the author is bot");
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info("Skips the process to add assignees since the author is bot");
     return;
   }
 
   (async () => {
-    const client = new github.GitHub(token);
-    const result = await client.issues.addAssignees({ 
-      owner: github.context.repo.owner,
-      repo: github.context.repo.repo,
+    const client = new _actions_github__WEBPACK_IMPORTED_MODULE_1__.GitHub(token);
+    const result = await client.issues.addAssignees({
+      owner: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.owner,
+      repo: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.repo,
       issue_number: number,
-      assignees: [author] 
+      assignees: [author]
     });
-    core.debug(JSON.stringify(result));
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(JSON.stringify(result));
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`@${author} has been assigned to the pull request: #${number}`);
   })();
+}
 
-  core.info(`@${author} has been assigned to the pull request: #${number}`);
+try {
+  run();
 } catch (error) {
-  core.setFailed(error.message);
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.message);
 }
 
 
@@ -10032,4 +10044,43 @@ function onceStrict (fn) {
 
 /***/ })
 
-/******/ });
+/******/ },
+/******/ function(__webpack_require__) { // webpackRuntimeModules
+/******/ 	"use strict";
+/******/ 
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	!function() {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = function(exports) {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	!function() {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = function(module) {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				function getDefault() { return module['default']; } :
+/******/ 				function getModuleExports() { return module; };
+/******/ 			__webpack_require__.d(getter, 'a', getter);
+/******/ 			return getter;
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getter */
+/******/ 	!function() {
+/******/ 		// define getter function for harmony exports
+/******/ 		var hasOwnProperty = Object.prototype.hasOwnProperty;
+/******/ 		__webpack_require__.d = function(exports, name, getter) {
+/******/ 			if(!hasOwnProperty.call(exports, name)) {
+/******/ 				Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 			}
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ }
+);

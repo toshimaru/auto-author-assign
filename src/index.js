@@ -1,7 +1,8 @@
-const core = require("@actions/core");
-const github = require("@actions/github");
+// const core = require("@actions/core");
+import * as core from '@actions/core';
+import * as github from '@actions/github';
 
-try {
+function run() {
   const token = core.getInput("repo-token", { required: true });
 
   if (github.context.payload.pull_request === undefined) {
@@ -20,15 +21,19 @@ try {
 
   (async () => {
     const client = new github.GitHub(token);
-    const result = await client.issues.addAssignees({ 
+    const result = await client.issues.addAssignees({
       owner: github.context.repo.owner,
       repo: github.context.repo.repo,
       issue_number: number,
-      assignees: [author] 
+      assignees: [author]
     });
     core.debug(JSON.stringify(result));
     core.info(`@${author} has been assigned to the pull request: #${number}`);
   })();
+}
+
+try {
+  run();
 } catch (error) {
   core.setFailed(error.message);
 }
