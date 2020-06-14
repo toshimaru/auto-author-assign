@@ -6823,13 +6823,13 @@ async function run() {
       return;
     }
 
-    const client = new _actions_github__WEBPACK_IMPORTED_MODULE_1__.getOctokit(token);
-    const result = await client.issues.addAssignees({
+    const octokit = _actions_github__WEBPACK_IMPORTED_MODULE_1__.getOctokit(token);
+    const result = await octokit.issues.addAssignees({
       owner: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.owner,
       repo: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.repo,
       issue_number: number,
       assignees: [author]
-    })
+    });
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(JSON.stringify(result));
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`@${author} has been assigned to the pull request: #${number}`);
   } catch (error) {

@@ -18,13 +18,13 @@ async function run() {
       return;
     }
 
-    const client = new github.getOctokit(token);
-    const result = await client.issues.addAssignees({
+    const octokit = github.getOctokit(token);
+    const result = await octokit.issues.addAssignees({
       owner: github.context.repo.owner,
       repo: github.context.repo.repo,
       issue_number: number,
       assignees: [author]
-    })
+    });
     core.debug(JSON.stringify(result));
     core.info(`@${author} has been assigned to the pull request: #${number}`);
   } catch (error) {
