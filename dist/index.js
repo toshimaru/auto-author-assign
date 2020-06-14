@@ -6806,7 +6806,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function run() {
+async function run() {
   const token = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("repo-token", { required: true });
 
   if (_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request === undefined) {
@@ -6823,17 +6823,15 @@ function run() {
     return;
   }
 
-  (async () => {
-    const client = new _actions_github__WEBPACK_IMPORTED_MODULE_1__.GitHub(token);
-    const result = await client.issues.addAssignees({
-      owner: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.owner,
-      repo: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.repo,
-      issue_number: number,
-      assignees: [author]
-    });
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(JSON.stringify(result));
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`@${author} has been assigned to the pull request: #${number}`);
-  })();
+  const client = new _actions_github__WEBPACK_IMPORTED_MODULE_1__.GitHub(token);
+  const result = await client.issues.addAssignees({
+    owner: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.owner,
+    repo: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.repo,
+    issue_number: number,
+    assignees: [author]
+  });
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(JSON.stringify(result));
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`@${author} has been assigned to the pull request: #${number}`);
 }
 
 try {
