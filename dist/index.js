@@ -6823,7 +6823,7 @@ async function run() {
       return;
     }
 
-    const client = new _actions_github__WEBPACK_IMPORTED_MODULE_1__.GitHub(token);
+    const client = new _actions_github__WEBPACK_IMPORTED_MODULE_1__.getOctokit(token);
     const result = await client.issues.addAssignees({
       owner: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.owner,
       repo: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.repo,
