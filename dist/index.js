@@ -6803,7 +6803,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions_github__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(469);
 /* harmony import */ var _actions_github__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_actions_github__WEBPACK_IMPORTED_MODULE_1__);
-// const core = require("@actions/core");
 
 
 
@@ -6840,6 +6839,7 @@ function run() {
 try {
   run();
 } catch (error) {
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.info('==================')
   _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.message);
 }
 
