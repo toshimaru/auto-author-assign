@@ -24,6 +24,9 @@ async function run() {
     repo: github.context.repo.repo,
     issue_number: number,
     assignees: [author]
+  }).catch ((err) => {
+    core.info(err)
+    console.log('caught it')
   });
   core.debug(JSON.stringify(result));
   core.info(`@${author} has been assigned to the pull request: #${number}`);
@@ -32,6 +35,5 @@ async function run() {
 try {
   run();
 } catch (error) {
-  core.info('==================')
   core.setFailed(error.message);
 }
