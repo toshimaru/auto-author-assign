@@ -6807,41 +6807,37 @@ __webpack_require__.r(__webpack_exports__);
 
 
 async function run() {
-  const token = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("repo-token", { required: true });
-
   try {
-    var a = {};
-    a.GitHub();
+    const token = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("repo-token", { required: true });
+    if (_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request === undefined) {
+      throw new Error("Can't get pull_request payload. Check you trigger pull_request event");
+    }
+    const { assignees, number, user: { login: author, type } } = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request;
+
+    if (assignees.length > 0) {
+      _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Skips the process to add assignees since the pull request is already assigned to someone`);
+      return;
+    }
+    if (type === 'Bot') {
+      _actions_core__WEBPACK_IMPORTED_MODULE_0__.info("Skips the process to add assignees since the author is bot");
+      return;
+    }
+
+    const client = new _actions_github__WEBPACK_IMPORTED_MODULE_1__.GitHub(token);
+    const result = await client.issues.addAssignees({
+      owner: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.owner,
+      repo: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.repo,
+      issue_number: number,
+      assignees: [author]
+    }).catch((err) => {
+      _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(err)
+      console.log('caught it')
+    });
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(JSON.stringify(result));
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`@${author} has been assigned to the pull request: #${number}`);
   } catch (error) {
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.message);
   }
-
-  if (_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request === undefined) {
-    throw new Error("Can't get pull_request payload. Check you trigger pull_request event");
-  }
-  const { assignees, number, user: { login: author, type } } = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request;
-
-  if (assignees.length > 0) {
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Skips the process to add assignees since the pull request is already assigned to someone`);
-    return;
-  }
-  if (type === 'Bot') {
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info("Skips the process to add assignees since the author is bot");
-    return;
-  }
-
-  const client = new _actions_github__WEBPACK_IMPORTED_MODULE_1__.GitHub(token);
-  const result = await client.issues.addAssignees({
-    owner: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.owner,
-    repo: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.repo,
-    issue_number: number,
-    assignees: [author]
-  }).catch ((err) => {
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(err)
-    console.log('caught it')
-  });
-  _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(JSON.stringify(result));
-  _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`@${author} has been assigned to the pull request: #${number}`);
 }
 
 try {
