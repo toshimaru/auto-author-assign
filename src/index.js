@@ -34,5 +34,6 @@ function run() {
 try {
   run();
 } catch (error) {
+  core.info('==================')
   core.setFailed(error.message);
 }
