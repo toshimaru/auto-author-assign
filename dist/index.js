@@ -6813,11 +6813,11 @@ async function run() {
     const { assignees, number, user: { login: author, type } } = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request;
 
     if (assignees.length > 0) {
-      _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Skips the process to add assignees since the pull request is already assigned to someone`);
+      _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Assigning author has been skipped since the pull request is already assigned to someone`);
       return;
     }
     if (type === 'Bot') {
-      _actions_core__WEBPACK_IMPORTED_MODULE_0__.info("Skips the process to add assignees since the author is bot");
+      _actions_core__WEBPACK_IMPORTED_MODULE_0__.info("Assigning author has been skipped since the author is bot");
       return;
     }
 
