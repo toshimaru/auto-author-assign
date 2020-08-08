@@ -32,5 +32,5 @@ jobs:
 
 `auto-author-assign` action doesn't assign an author when:
 
-- Someone is already assigned as the assignee
+- Someone is already assigned as an assignee
 - The author is a bot
