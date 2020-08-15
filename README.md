@@ -25,14 +25,14 @@ jobs:
   add-assignees:
     runs-on: ubuntu-latest
     steps:
-      - uses: toshimaru/auto-author-assign@v1.0.0
+      - uses: toshimaru/auto-author-assign@v1.1.0
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
 ```
 
-## Exception
+## Skip assigning author
 
-`auto-author-assign` action doesn't assign an author when:
+`auto-author-assign` action skips assigning the author when:
 
 - Someone is already assigned as an assignee
 - The author is a bot
