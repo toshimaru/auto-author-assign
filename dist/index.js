@@ -6817,7 +6817,7 @@ async function run() {
       return;
     }
     if (type === 'Bot') {
-      _actions_core__WEBPACK_IMPORTED_MODULE_0__.info("Assigning author has been skipped since the author is bot");
+      _actions_core__WEBPACK_IMPORTED_MODULE_0__.info("Assigning author has been skipped since the author is a bot");
       return;
     }
 
