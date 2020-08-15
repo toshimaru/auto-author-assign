@@ -17,7 +17,9 @@ This action automatically assigns PR author as an assignee.
 ```yaml
 name: 'Auto Author Assign'
 
-on: pull_request
+on:
+  pull_request:
+    types: [opened, reopened]
 
 jobs:
   add-assignees:
