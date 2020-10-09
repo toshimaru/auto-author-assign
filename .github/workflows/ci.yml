@@ -1,5 +1,5 @@
 name: 'Auto Author Assign'
-on: [pull_request_target]
+on: [pull_request, pull_request_target]
 jobs:
   add-assignees:
     runs-on: ubuntu-latest
