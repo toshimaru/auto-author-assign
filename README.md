@@ -23,7 +23,7 @@ on:
     types: [opened, reopened]
 
 jobs:
-  add-assignees:
+  assign-author:
     runs-on: ubuntu-latest
     steps:
       - uses: toshimaru/auto-author-assign@v1.1.0
