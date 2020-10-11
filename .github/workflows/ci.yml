@@ -1,7 +1,7 @@
 name: 'Auto Author Assign'
-on: [pull_request]
+on: [pull_request_target]
 jobs:
-  add-assignees:
+  assign-author:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

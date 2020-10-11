@@ -19,11 +19,11 @@ This action automatically assigns PR author as an assignee.
 name: 'Auto Author Assign'
 
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, reopened]
 
 jobs:
-  add-assignees:
+  assign-author:
     runs-on: ubuntu-latest
     steps:
       - uses: toshimaru/auto-author-assign@v1.1.0
