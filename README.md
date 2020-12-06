@@ -26,7 +26,7 @@ jobs:
   assign-author:
     runs-on: ubuntu-latest
     steps:
-      - uses: toshimaru/auto-author-assign@v1.1.0
+      - uses: toshimaru/auto-author-assign@v1.2.0
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
 ```
