@@ -1,4 +1,4 @@
-![Build](https://github.com/toshimaru/auto-author-assign/workflows/Build/badge.svg)
+[![Build](https://github.com/toshimaru/auto-author-assign/actions/workflows/build.yml/badge.svg)](https://github.com/toshimaru/auto-author-assign/actions/workflows/build.yml)
 
 # auto-author-assign
 
@@ -26,7 +26,7 @@ jobs:
   assign-author:
     runs-on: ubuntu-latest
     steps:
-      - uses: toshimaru/auto-author-assign@v1.2.0
+      - uses: toshimaru/auto-author-assign@v1.3.0
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
 ```
