@@ -11,7 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/toshimaru/auto-author-assign.git"
   },
-  "keywords": [],
+  "keywords": [
+    "github",
+    "github-action"
+  ],
   "author": "toshimaru",
   "license": "MIT",
   "bugs": {
@@ -23,6 +26,6 @@
     "@actions/github": "4.0.0"
   },
   "devDependencies": {
-    "@zeit/ncc": "^0.22.3"
+    "@vercel/ncc": "^0.28.3"
   }
 }
