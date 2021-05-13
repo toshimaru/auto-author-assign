@@ -22,6 +22,10 @@ on:
   pull_request_target:
     types: [opened, reopened]
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   assign-author:
     runs-on: ubuntu-latest
