@@ -14,7 +14,7 @@ This action automatically assigns PR author as an assignee.
 
 ## Usage
 
-```yaml
+```yml
 # .github/workflows/auto-author-assign.yml
 name: 'Auto Author Assign'
 
@@ -30,7 +30,7 @@ jobs:
   assign-author:
     runs-on: ubuntu-latest
     steps:
-      - uses: toshimaru/auto-author-assign@v1.3.1
+      - uses: toshimaru/auto-author-assign@v1.3.2
 ```
 
 ## Use your token
