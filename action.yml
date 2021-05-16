@@ -5,6 +5,7 @@ inputs:
   repo-token:
     description: 'A token for the repository'
     required: true
+    default: '${{ github.token }}'
 runs:
   using: 'node12'
   main: 'dist/index.js'
