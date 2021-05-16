@@ -8,5 +8,3 @@ jobs:
         uses: actions/checkout@v2
       - name: Test toshimaru/auto-author-assign action
         uses: ./ # Uses an action in the root directory
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
