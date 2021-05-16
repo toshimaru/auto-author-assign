@@ -1,5 +1,7 @@
 name: 'Auto Author Assign'
 on: [pull_request_target]
+permissions:
+  pull-requests: write
 jobs:
   assign-author:
     runs-on: ubuntu-latest
