@@ -30,10 +30,24 @@ jobs:
   assign-author:
     runs-on: ubuntu-latest
     steps:
-      - uses: toshimaru/auto-author-assign@v1.3.0
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: toshimaru/auto-author-assign@v1.3.1
 ```
+
+## Use your token
+
+You can specify your own token.
+
+```yml
+jobs:
+  assign-author:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: toshimaru/auto-author-assign
+        with:
+          repo-token: "${{ secrets.YOUR_TOKEN }}"
+```
+
+If not specified, `GITHUB_TOKEN` will be used by default.
 
 ## Skip assigning author
 
