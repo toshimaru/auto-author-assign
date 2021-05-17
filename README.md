@@ -23,7 +23,6 @@ on:
     types: [opened, reopened]
 
 permissions:
-  contents: read
   pull-requests: write
 
 jobs:
