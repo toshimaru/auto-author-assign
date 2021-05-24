@@ -6122,7 +6122,7 @@ async function run() {
     }
 
     const octokit = (0,_actions_github__WEBPACK_IMPORTED_MODULE_1__.getOctokit)(token);
-    const result = await octokit.issues.addAssignees({
+    const result = await octokit.rest.issues.addAssignees({
       owner: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.owner,
       repo: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.repo,
       issue_number: number,
