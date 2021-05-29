@@ -23,7 +23,7 @@
   "homepage": "https://github.com/toshimaru/auto-author-assign#readme",
   "funding": "https://github.com/sponsors/toshimaru",
   "dependencies": {
-    "@actions/core": "^1.2.7",
+    "@actions/core": "^1.3.0",
     "@actions/github": "5.0.0"
   },
   "devDependencies": {
