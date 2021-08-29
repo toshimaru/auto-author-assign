@@ -18,6 +18,7 @@
   ],
   "author": "toshimaru",
   "license": "MIT",
+  "private": true,
   "bugs": {
     "url": "https://github.com/toshimaru/auto-author-assign/issues"
   },
