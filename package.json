@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "build": "ncc build src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "@actions/github": "5.0.0"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.30.0"
+    "@vercel/ncc": "^0.30.0",
+    "standard-version": "^9.3.1"
   }
 }
