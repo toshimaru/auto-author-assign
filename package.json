@@ -30,6 +30,6 @@
   },
   "devDependencies": {
     "@vercel/ncc": "^0.31.1",
-    "standard-version": "^9.3.1"
+    "standard-version": "^9.3.2"
   }
 }
