@@ -29,7 +29,7 @@
     "@actions/github": "5.0.0"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.31.1",
+    "@vercel/ncc": "^0.33.0",
     "standard-version": "^9.3.2"
   }
 }
