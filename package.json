@@ -1,6 +1,7 @@
 {
   "name": "auto-author-assign",
   "version": "1.4.0",
+  "private": true,
   "description": "GitHub Actions: Assign pull request author automatically.",
   "main": "src/index.js",
   "scripts": {
@@ -14,11 +15,11 @@
   },
   "keywords": [
     "github",
+    "actions",
     "github-action"
   ],
   "author": "toshimaru",
   "license": "MIT",
-  "private": true,
   "bugs": {
     "url": "https://github.com/toshimaru/auto-author-assign/issues"
   },
