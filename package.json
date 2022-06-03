@@ -27,7 +27,7 @@
   "funding": "https://github.com/sponsors/toshimaru",
   "dependencies": {
     "@actions/core": "^1.8.2",
-    "@actions/github": "5.0.0"
+    "@actions/github": "5.0.3"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.34.0",
