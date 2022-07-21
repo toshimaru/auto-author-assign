@@ -32,6 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: toshimaru/auto-author-assign@v1.6.0
+
 ```
 
 ## Use your token
@@ -46,6 +47,7 @@ jobs:
       - uses: toshimaru/auto-author-assign
         with:
           repo-token: ${{ secrets.YOUR_TOKEN }}
+
 ```
 
 If not specified, `GITHUB_TOKEN` will be used by default.
