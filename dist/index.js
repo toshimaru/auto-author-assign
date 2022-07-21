@@ -9606,21 +9606,23 @@ __nccwpck_require__.r(__webpack_exports__);
 
 async function run() {
   try {
-    const token = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("repo-token", { required: true });
-    if (_actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request === undefined) {
-      throw new Error("Can't get pull_request payload. Check you trigger pull_request event");
+    const target = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request || _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.issues
+    if (target === undefined) {
+      throw new Error("Can't get payload. Check you trigger event");
     }
-    const { assignees, number, user: { login: author, type } } = _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.payload.pull_request;
+    const { assignees, number, user: { login: author, type } } = target;
 
     if (assignees.length > 0) {
-      _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`Assigning author has been skipped since the pull request is already assigned to someone`);
+      _actions_core__WEBPACK_IMPORTED_MODULE_0__.info("Assigning author has been skipped since the pull request is already assigned to someone");
       return;
     }
-    if (type === 'Bot') {
+
+    if (type === "Bot") {
       _actions_core__WEBPACK_IMPORTED_MODULE_0__.info("Assigning author has been skipped since the author is a bot");
       return;
     }
 
+    const token = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("repo-token", { required: true });
     const octokit = (0,_actions_github__WEBPACK_IMPORTED_MODULE_1__.getOctokit)(token);
     const result = await octokit.rest.issues.addAssignees({
       owner: _actions_github__WEBPACK_IMPORTED_MODULE_1__.context.repo.owner,
@@ -9628,8 +9630,10 @@ async function run() {
       issue_number: number,
       assignees: [author]
     });
+
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(JSON.stringify(result));
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.info(`@${author} has been assigned to the pull request: #${number}`);
+
   } catch (error) {
     _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.message);
   }
