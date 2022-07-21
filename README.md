@@ -19,8 +19,10 @@ This action automatically assigns PR author as an assignee.
 name: Auto Author Assign
 
 on:
+  issues:
+    types: [ opened, assigned ]
   pull_request_target:
-    types: [opened, reopened]
+    types: [ opened, reopened ]
 
 permissions:
   pull-requests: write
