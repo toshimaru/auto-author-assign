@@ -1,5 +1,5 @@
-import * as core from '@actions/core';
-import { context, getOctokit } from '@actions/github';
+import * as core from "@actions/core";
+import { context, getOctokit } from "@actions/github";
 
 async function run() {
   try {
@@ -10,10 +10,10 @@ async function run() {
     const { assignees, number, user: { login: author, type } } = context.payload.pull_request;
 
     if (assignees.length > 0) {
-      core.info(`Assigning author has been skipped since the pull request is already assigned to someone`);
+      core.info("Assigning author has been skipped since the pull request is already assigned to someone");
       return;
     }
-    if (type === 'Bot') {
+    if (type === "Bot") {
       core.info("Assigning author has been skipped since the author is a bot");
       return;
     }
