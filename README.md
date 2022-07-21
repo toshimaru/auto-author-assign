@@ -20,7 +20,7 @@ name: Auto Author Assign
 
 on:
   issues:
-    types: [ opened, assigned ]
+    types: [ opened, reopened ]
   pull_request_target:
     types: [ opened, reopened ]
 
@@ -31,7 +31,7 @@ jobs:
   assign-author:
     runs-on: ubuntu-latest
     steps:
-      - uses: toshimaru/auto-author-assign@v1.4.0
+      - uses: toshimaru/auto-author-assign@v1.6.0
 ```
 
 ## Use your token
