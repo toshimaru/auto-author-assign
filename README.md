@@ -20,7 +20,7 @@ name: Auto Author Assign
 
 on:
   issues:
-    types: [ opened, assigned ]
+    types: [ opened, reopened ]
   pull_request_target:
     types: [ opened, reopened ]
 
@@ -47,6 +47,7 @@ jobs:
       - uses: toshimaru/auto-author-assign
         with:
           repo-token: ${{ secrets.YOUR_TOKEN }}
+
 ```
 
 If not specified, `GITHUB_TOKEN` will be used by default.
