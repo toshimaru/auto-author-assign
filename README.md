@@ -16,7 +16,7 @@ This action automatically assigns PR author as an assignee.
 
 ```yml
 # .github/workflows/auto-author-assign.yml
-name: 'Auto Author Assign'
+name: Auto Author Assign
 
 on:
   pull_request_target:
@@ -43,7 +43,7 @@ jobs:
     steps:
       - uses: toshimaru/auto-author-assign
         with:
-          repo-token: "${{ secrets.YOUR_TOKEN }}"
+          repo-token: ${{ secrets.YOUR_TOKEN }}
 ```
 
 If not specified, `GITHUB_TOKEN` will be used by default.
