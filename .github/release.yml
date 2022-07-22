@@ -1,0 +1,5 @@
+changelog:
+  categories:
+    - title: Dependencies
+      labels:
+        - dependencies
