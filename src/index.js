@@ -3,7 +3,7 @@ import { context, getOctokit } from "@actions/github";
 
 async function run() {
   try {
-    const target = context.payload.pull_request || context.payload.issues
+    const target = context.payload.pull_request || context.payload.issue
     if (target === undefined) {
       throw new Error("Can't get payload. Check you trigger event");
     }

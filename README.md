@@ -25,13 +25,14 @@ on:
     types: [ opened, reopened ]
 
 permissions:
+  issues: write
   pull-requests: write
 
 jobs:
   assign-author:
     runs-on: ubuntu-latest
     steps:
-      - uses: toshimaru/auto-author-assign@v1.6.0
+    - uses: toshimaru/auto-author-assign@v1.6.0
 
 ```
 
@@ -44,9 +45,9 @@ jobs:
   assign-author:
     runs-on: ubuntu-latest
     steps:
-      - uses: toshimaru/auto-author-assign
-        with:
-          repo-token: ${{ secrets.YOUR_TOKEN }}
+    - uses: toshimaru/auto-author-assign
+      with:
+      repo-token: '${{ secrets.YOUR_TOKEN }}'
 
 ```
 
