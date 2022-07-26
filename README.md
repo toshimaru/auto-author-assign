@@ -16,7 +16,7 @@ This action automatically assigns PR author as an assignee.
 
 ```yml
 # .github/workflows/auto-author-assign.yml
-name: Auto Author Assign
+name: 'Auto Author Assign'
 
 on:
   issues:
