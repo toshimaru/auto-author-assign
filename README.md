@@ -19,17 +19,21 @@ This action automatically assigns PR author as an assignee.
 name: 'Auto Author Assign'
 
 on:
+  issues:
+    types: [ opened, reopened ]
   pull_request_target:
-    types: [opened, reopened]
+    types: [ opened, reopened ]
 
 permissions:
+  issues: write
   pull-requests: write
 
 jobs:
   assign-author:
     runs-on: ubuntu-latest
     steps:
-      - uses: toshimaru/auto-author-assign@v1.4.0
+    - uses: toshimaru/auto-author-assign@v1.6.0
+
 ```
 
 ## Use your token
@@ -41,9 +45,10 @@ jobs:
   assign-author:
     runs-on: ubuntu-latest
     steps:
-      - uses: toshimaru/auto-author-assign
-        with:
-          repo-token: "${{ secrets.YOUR_TOKEN }}"
+    - uses: toshimaru/auto-author-assign
+      with:
+      repo-token: '${{ secrets.YOUR_TOKEN }}'
+
 ```
 
 If not specified, `GITHUB_TOKEN` will be used by default.
