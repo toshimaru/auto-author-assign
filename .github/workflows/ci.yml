@@ -1,8 +1,12 @@
 name: Auto Author Assign
 
-on: [ pull_request_target ]
+on: 
+  pull_request_target:
+  issues:
+    types: [ opened, reopened ]
 
 permissions:
+  issues: write
   pull-requests: write
 
 jobs:
