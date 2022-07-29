@@ -1,10 +1,10 @@
-name: 'Auto Author Assign'
+name: Auto Author Assign
 description: 'Assign author to pull requests when the pull requests are opened.'
 author: 'toshimaru'
 inputs:
   repo-token:
     description: 'A token for the repository'
-    default: '${{ github.token }}'
+    default: ${{ github.token }}
 runs:
   using: 'node16'
   main: 'dist/index.js'
