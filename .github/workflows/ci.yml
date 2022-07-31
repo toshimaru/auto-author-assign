@@ -2,8 +2,9 @@ name: Auto Author Assign
 
 on: 
   pull_request_target:
-  issues:
-    types: [ opened, reopened ]
+  # Uncomment if you want to enable auto-author-assign for the issue
+  # issues:
+  #   types: [ opened, reopened ]
 
 permissions:
   issues: write
