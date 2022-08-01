@@ -19,13 +19,10 @@ This action automatically assigns PR author as an assignee.
 name: Auto Author Assign
 
 on:
-  issues:
-    types: [ opened, reopened ]
   pull_request_target:
     types: [ opened, reopened ]
 
 permissions:
-  issues: write
   pull-requests: write
 
 jobs:
@@ -33,7 +30,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: toshimaru/auto-author-assign@v1.6.0
-
 ```
 
 ## Use your own token
@@ -48,10 +44,31 @@ jobs:
       - uses: toshimaru/auto-author-assign
         with:
           repo-token: ${{ secrets.YOUR_TOKEN }}
-
 ```
 
 If not specified, `GITHUB_TOKEN` will be used by default.
+
+## Enable auto-author-assign for the issues
+
+An issue author can be automatically assigned as an issue assignee.
+
+- Add `issues` to the trigger
+- Add `issues: write` to the permissions
+
+```yml
+on:
+  issues:
+    types: [ opened, reopened ]
+  pull_request_target:
+    types: [ opened, reopened ]
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  ...
+```
 
 ## Skip assigning author
 
