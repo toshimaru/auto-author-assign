@@ -29,7 +29,7 @@ jobs:
   assign-author:
     runs-on: ubuntu-latest
     steps:
-      - uses: toshimaru/auto-author-assign@v1.6.0
+      - uses: toshimaru/auto-author-assign@v1.6.2
 ```
 
 ## Use your own token
