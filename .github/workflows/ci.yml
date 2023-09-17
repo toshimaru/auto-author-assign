@@ -14,6 +14,6 @@ jobs:
   assign-author:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Test toshimaru/auto-author-assign action
         uses: ./ # Uses an action in the root directory
