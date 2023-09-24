@@ -1,6 +1,6 @@
 {
   "name": "auto-author-assign",
-  "version": "1.6.2",
+  "version": "2.0.0",
   "private": true,
   "description": "GitHub Actions: Assign the pull request author automatically.",
   "scripts": {
