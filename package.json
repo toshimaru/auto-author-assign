@@ -2,26 +2,28 @@
   "name": "auto-author-assign",
   "version": "1.6.2",
   "private": true,
-  "description": "GitHub Actions: Assign pull request author automatically.",
-  "main": "src/index.js",
+  "description": "GitHub Actions: Assign the pull request author automatically.",
   "scripts": {
     "build": "ncc build src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "standard-version"
+    "release": "standard-version",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/toshimaru/auto-author-assign.git"
   },
   "keywords": [
-    "github",
-    "actions",
-    "github-action"
+    "GitHub",
+    "Actions",
+    "JavaScript"
   ],
   "author": "toshimaru",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/toshimaru/auto-author-assign/issues"
+  },
+  "exports": {
+    ".": "./dist/index.js"
   },
   "engines": {
     "node": ">=20"
