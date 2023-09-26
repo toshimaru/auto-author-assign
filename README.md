@@ -2,15 +2,15 @@
 
 # auto-author-assign
 
-GitHub Actions: Assign pull request author automatically.
+GitHub Actions: Automatically assign pull request authors.
 
 ![OG image](./img/auto-author-assign.jpg)
 
 ## Why this action?
 
-In most cases, pull request author should be assigned an assignee of the pull request.
+In most cases, the pull request author should be assigned as an **assignee** of the pull request.
 
-This action automatically assigns PR author as an assignee.
+This action automatically assigns the pull request author as an assignee.
 
 ## Usage
 
@@ -48,9 +48,9 @@ jobs:
 
 If not specified, `GITHUB_TOKEN` will be used by default.
 
-## Enable auto-author-assign for the issues
+## Enable auto-author-assign for issues
 
-An issue author can be automatically assigned as an issue assignee.
+An issue's author can be automatically assigned as an issue assignee.
 
 - Add `issues` to the trigger
 - Add `issues: write` to the permissions
@@ -70,9 +70,9 @@ jobs:
   ...
 ```
 
-## Skip assigning author
+## Skip assigning the author
 
-`auto-author-assign` action skips assigning the author when:
+The `auto-author-assign` action skips assigning the author when:
 
-- Someone is already assigned as an assignee
-- The author is a bot
+1. Someone is already assigned as an assignee
+1. The author is a bot
