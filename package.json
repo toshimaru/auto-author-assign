@@ -2,7 +2,7 @@
   "name": "auto-author-assign",
   "version": "2.0.0",
   "private": true,
-  "description": "GitHub Actions: Assign the pull request author automatically.",
+  "description": "GitHub Actions: Automatically assign pull request authors",
   "scripts": {
     "build": "ncc build src/index.js",
     "release": "standard-version",
