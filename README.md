@@ -1,3 +1,5 @@
+Test PR to test auto assign action
+
 [![Build](https://github.com/toshimaru/auto-author-assign/actions/workflows/build.yml/badge.svg)](https://github.com/toshimaru/auto-author-assign/actions/workflows/build.yml)
 
 # auto-author-assign
