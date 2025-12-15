@@ -31,8 +31,8 @@
   "homepage": "https://github.com/toshimaru/auto-author-assign#readme",
   "funding": "https://github.com/sponsors/toshimaru",
   "dependencies": {
-    "@actions/core": "^1.11.1",
-    "@actions/github": "6.0.0"
+    "@actions/core": "^2.0.1",
+    "@actions/github": "^6.0.1"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.38.4",
