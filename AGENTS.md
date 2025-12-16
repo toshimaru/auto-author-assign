@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AI Agent Guide
 
-This file provides guidance to Claude Code (claude.ai/code) when working with this repository.
+Guidance for any AI assistant working with this repository.
 
 ## Project Overview
 
@@ -43,6 +43,7 @@ npm run release
 - **Always rebuild before committing**: After modifying `src/index.js`, run `npm run build` and commit the updated `dist/index.js`. The CI will fail if dist is out of sync.
 - **Single source file**: All action logic is in `src/index.js` (~40 lines)
 - **No tests**: This project currently has no automated tests (`npm test` exits with error)
+- **GitHub access**: Use the `gh` CLI for any required GitHub interactions.
 
 ## Action Behavior
 
