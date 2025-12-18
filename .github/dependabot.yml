@@ -4,11 +4,7 @@ updates:
     directory: /
     schedule:
       interval: weekly
-    reviewers:
-      - toshimaru
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
-    reviewers:
-      - toshimaru
