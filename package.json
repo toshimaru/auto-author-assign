@@ -1,34 +1,34 @@
 {
   "name": "auto-author-assign",
-  "version": "2.1.2",
-  "private": true,
   "description": "GitHub Actions: Automatically assign pull request authors",
-  "scripts": {
-    "build": "ncc build src/index.js --license licenses.txt",
-    "release": "standard-version",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "version": "2.1.2",
+  "author": "toshimaru",
+  "private": true,
+  "homepage": "https://github.com/toshimaru/auto-author-assign#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/toshimaru/auto-author-assign.git"
+  },
+  "bugs": {
+    "url": "https://github.com/toshimaru/auto-author-assign/issues"
   },
   "keywords": [
     "GitHub",
     "Actions",
     "JavaScript"
   ],
-  "author": "toshimaru",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/toshimaru/auto-author-assign/issues"
-  },
   "exports": {
     ".": "./dist/index.js"
   },
   "engines": {
     "node": ">=24"
   },
-  "homepage": "https://github.com/toshimaru/auto-author-assign#readme",
+  "scripts": {
+    "build": "ncc build src/index.js --license licenses.txt",
+    "release": "standard-version",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
   "funding": "https://github.com/sponsors/toshimaru",
   "dependencies": {
     "@actions/core": "^1.11.1",
