@@ -11,7 +11,7 @@ Guidance for any AI assistant working with this repository.
 - **Runtime**: Node.js 20+
 - **Build Tool**: @vercel/ncc (bundles source into single dist/index.js)
 - **Dependencies**: @actions/core, @actions/github
-- **Release**: standard-version for versioning
+- **Release**: release-please (automated via GitHub Actions)
 
 ## Common Commands
 
@@ -21,10 +21,9 @@ npm ci
 
 # Build the action (bundles src/index.js → dist/index.js)
 npm run build
-
-# Create a new release version
-npm run release
 ```
+
+**Releases**: Handled automatically by release-please. When PRs with conventional commits are merged to `main`, release-please creates/updates a release PR. Merging that PR triggers the release.
 
 ## Project Structure
 
@@ -34,8 +33,9 @@ npm run release
 ├── action.yml        # GitHub Action metadata and inputs
 └── .github/
     └── workflows/
-        ├── build.yml # CI: builds and checks dist is up-to-date
-        └── ci.yml    # Tests the action on PRs
+        ├── build.yml         # CI: builds and checks dist is up-to-date
+        ├── ci.yml            # Tests the action on PRs
+        └── release-please.yml # Automated releases
 ```
 
 ## Key Development Notes

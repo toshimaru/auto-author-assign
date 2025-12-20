@@ -25,7 +25,6 @@
   },
   "scripts": {
     "build": "ncc build src/index.js --license licenses.txt",
-    "release": "standard-version",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": "MIT",
@@ -35,7 +34,6 @@
     "@actions/github": "6.0.1"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.38.4",
-    "standard-version": "^9.5.0"
+    "@vercel/ncc": "^0.38.4"
   }
 }
