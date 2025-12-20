@@ -10,4 +10,4 @@ runs:
   main: 'dist/index.js'
 branding:
   icon: 'user-plus'
-  color: 'red'
+  color: 'purple'
