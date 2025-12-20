@@ -26,7 +26,7 @@
     ".": "./dist/index.js"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=24"
   },
   "homepage": "https://github.com/toshimaru/auto-author-assign#readme",
   "funding": "https://github.com/sponsors/toshimaru",
