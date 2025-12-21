@@ -3,6 +3,7 @@
   "description": "GitHub Actions: Automatically assign pull request authors",
   "version": "2.1.2",
   "author": "toshimaru",
+  "type": "module",
   "private": true,
   "homepage": "https://github.com/toshimaru/auto-author-assign#readme",
   "repository": {
@@ -24,8 +25,9 @@
     "node": ">=24"
   },
   "scripts": {
-    "build": "ncc build src/index.js --license licenses.txt",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "npx rimraf ./dist && npx rollup --config rollup.config.js",
+    "package:watch": "npm run package -- --watch"
   },
   "license": "MIT",
   "funding": "https://github.com/sponsors/toshimaru",
@@ -34,6 +36,11 @@
     "@actions/github": "6.0.1"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.38.4"
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "rollup": "^4.54.0"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "*"
   }
 }
