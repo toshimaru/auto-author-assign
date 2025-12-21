@@ -9,7 +9,7 @@ Guidance for any AI assistant working with this repository.
 ## Tech Stack
 
 - **Runtime**: Node.js 20+
-- **Build Tool**: @vercel/ncc (bundles source into single dist/index.js)
+- **Build Tool**: Rollup (bundles source into single dist/index.js)
 - **Dependencies**: @actions/core, @actions/github
 - **Release**: release-please (automated via GitHub Actions)
 
@@ -20,7 +20,7 @@ Guidance for any AI assistant working with this repository.
 npm ci
 
 # Build the action (bundles src/index.js → dist/index.js)
-npm run build
+npm run package
 ```
 
 **Releases**: Handled automatically by release-please. When PRs with conventional commits are merged to `main`, release-please creates/updates a release PR. Merging that PR triggers the release.
@@ -28,9 +28,10 @@ npm run build
 ## Project Structure
 
 ```
-├── src/index.js      # Main action source code
-├── dist/index.js     # Bundled output (committed, auto-generated)
-├── action.yml        # GitHub Action metadata and inputs
+├── src/index.js       # Main action source code
+├── dist/index.js      # Bundled output (committed, auto-generated)
+├── action.yml         # GitHub Action metadata and inputs
+├── rollup.config.js   # Rollup bundler configuration
 └── .github/
     └── workflows/
         ├── build.yml         # CI: builds and checks dist is up-to-date
@@ -40,7 +41,7 @@ npm run build
 
 ## Key Development Notes
 
-- **Always rebuild before committing**: After modifying `src/index.js`, run `npm run build` and commit the updated `dist/index.js`. The CI will fail if dist is out of sync.
+- **Always rebuild before committing**: After modifying `src/index.js`, run `npm run package` and commit the updated `dist/index.js`. The CI will fail if dist is out of sync.
 - **Single source file**: All action logic is in `src/index.js` (~40 lines)
 - **No tests**: This project currently has no automated tests (`npm test` exits with error)
 - **GitHub access**: Use the `gh` CLI for any required GitHub interactions.
