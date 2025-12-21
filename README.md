@@ -27,7 +27,7 @@ permissions:
 
 jobs:
   assign-author:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
       - uses: toshimaru/auto-author-assign@v3.0.0
 ```
@@ -39,7 +39,7 @@ You can specify your own token.
 ```yml
 jobs:
   assign-author:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
       - uses: toshimaru/auto-author-assign
         with:
