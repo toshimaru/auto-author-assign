@@ -1,7 +1,7 @@
 {
   "name": "auto-author-assign",
   "description": "GitHub Actions: Automatically assign pull request authors",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "author": "toshimaru",
   "type": "module",
   "private": true,
