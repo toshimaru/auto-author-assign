@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.3](https://github.com/toshimaru/auto-author-assign/compare/v3.0.2...v3.0.3) (2026-06-15)
+
+
+### Miscellaneous Chores
+
+* release 3.0.3 ([8f81314](https://github.com/toshimaru/auto-author-assign/commit/8f813140fc4dbdfcc4a43f89d97033b5988e3773))
+
 ## [3.0.2](https://github.com/toshimaru/auto-author-assign/compare/v3.0.1...v3.0.2) (2026-04-27)
 
 
