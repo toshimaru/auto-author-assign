@@ -30,7 +30,7 @@ jobs:
   assign-author:
     runs-on: ubuntu-slim
     steps:
-      - uses: toshimaru/auto-author-assign@v3.0.2
+      - uses: toshimaru/auto-author-assign@v3.0.3
 ```
 
 ## Use your own token
