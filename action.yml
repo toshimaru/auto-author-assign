@@ -5,6 +5,10 @@ inputs:
   repo-token:
     description: 'A token for the repository'
     default: ${{ github.token }}
+  skip-users:
+    description: 'YAML list of GitHub usernames to never assign (e.g. machine-user bots)'
+    required: false
+    default: ''
 runs:
   using: 'node24'
   main: 'dist/index.js'
