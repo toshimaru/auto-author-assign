@@ -33070,6 +33070,13 @@ function getOctokit(token, options, ...additionalPlugins) {
     return new GitHubWithPlugins(getOctokitOptions(token));
 }
 
+function parseUserList(input) {
+  return input
+    .split(/[\n,]+/)
+    .map((name) => name.trim().toLowerCase())
+    .filter(Boolean);
+}
+
 async function run() {
   try {
     const target = context.payload.pull_request || context.payload.issue;
@@ -33085,6 +33092,12 @@ async function run() {
 
     if (type === "Bot") {
       info("Assigning author has been skipped since the author is a bot");
+      return;
+    }
+
+    const skipUsers = parseUserList(getInput("skip-users") || "");
+    if (skipUsers.includes(author.toLowerCase())) {
+      info(`Assigning author has been skipped since the author is in skip-users: ${author}`);
       return;
     }
 
