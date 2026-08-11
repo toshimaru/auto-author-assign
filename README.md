@@ -76,7 +76,7 @@ jobs:
 The `auto-author-assign` action skips assigning the author when:
 
 1. Someone is already assigned as an assignee
-1. The author is a bot (except machine-user accounts)
+1. The author is a bot
 1. The username is in the `skip-users` list
 
 ```yml
@@ -86,7 +86,15 @@ jobs:
     steps:
       - uses: toshimaru/auto-author-assign
         with:
-          skip-users:
-            - super-user
-            - machine-user-bot
+          skip-users: super-user,machine-user-bot
+```
+
+`skip-users` also accepts a newline-separated list:
+
+```yml
+      - uses: toshimaru/auto-author-assign
+        with:
+          skip-users: |
+            super-user
+            machine-user-bot
 ```

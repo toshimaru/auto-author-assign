@@ -3,8 +3,8 @@ import { context, getOctokit } from "@actions/github";
 
 function parseUserList(input) {
   return input
-    .split("\n")
-    .map((name) => name.trim().replace(/^-\s+/, "").toLowerCase())
+    .split(/[\n,]+/)
+    .map((name) => name.trim().toLowerCase())
     .filter(Boolean);
 }
 
