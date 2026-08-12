@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.1.0](https://github.com/toshimaru/auto-author-assign/compare/v3.0.3...v3.1.0) (2026-08-12)
+
+
+### Features
+
+* add support to skip users (see [#185](https://github.com/toshimaru/auto-author-assign/issues/185) and [#191](https://github.com/toshimaru/auto-author-assign/issues/191)) ([c323db6](https://github.com/toshimaru/auto-author-assign/commit/c323db629e2e295b2c8ebe87d47bb2c961ef87ae))
+
+
+### Bug Fixes
+
+* parse skip-users as comma or newline-separated list ([9db2a78](https://github.com/toshimaru/auto-author-assign/commit/9db2a78bf35000232ae3b800c3dd021300887393))
+
 ## [3.0.3](https://github.com/toshimaru/auto-author-assign/compare/v3.0.2...v3.0.3) (2026-06-15)
 
 
