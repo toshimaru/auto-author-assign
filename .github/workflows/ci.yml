@@ -1,7 +1,7 @@
 name: Auto Author Assign
 
-on: 
-  pull_request_target:
+on:
+  pull_request:
   # Uncomment if you want to enable auto-author-assign for the issue
   # issues:
   #   types: [ opened, reopened ]
@@ -17,3 +17,5 @@ jobs:
       - uses: actions/checkout@v7
       - name: Test toshimaru/auto-author-assign action
         uses: ./ # Uses an action in the root directory
+        with:
+          skip-users: toshimaru
