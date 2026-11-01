@@ -4,6 +4,8 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    ignore:
+      - dependency-name: "@rollup/rollup-linux-x64-gnu"
     cooldown:
       semver-major-days: 30
       semver-minor-days: 7
