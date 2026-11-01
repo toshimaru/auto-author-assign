@@ -4,11 +4,6 @@ updates:
     directory: /
     schedule:
       interval: weekly
-    groups:
-      rollup:
-        patterns:
-          - rollup
-          - "@rollup/rollup-*"
     ignore:
       - dependency-name: "@rollup/rollup-linux-x64-gnu"
     cooldown:
