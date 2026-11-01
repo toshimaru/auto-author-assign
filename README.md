@@ -1,3 +1,5 @@
+Test PR to test auto assign action
+
 [![Build](https://github.com/toshimaru/auto-author-assign/actions/workflows/build.yml/badge.svg)](https://github.com/toshimaru/auto-author-assign/actions/workflows/build.yml)
 ![GitHub Release](https://img.shields.io/github/v/release/toshimaru/auto-author-assign)
 
