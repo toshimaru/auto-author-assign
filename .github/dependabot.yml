@@ -4,6 +4,11 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    groups:
+      rollup:
+        patterns:
+          - rollup
+          - "@rollup/rollup-*"
     cooldown:
       semver-major-days: 30
       semver-minor-days: 7
