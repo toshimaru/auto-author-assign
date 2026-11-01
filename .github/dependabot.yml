@@ -9,6 +9,8 @@ updates:
         patterns:
           - rollup
           - "@rollup/rollup-*"
+    ignore:
+      - dependency-name: "@rollup/rollup-linux-x64-gnu"
     cooldown:
       semver-major-days: 30
       semver-minor-days: 7
